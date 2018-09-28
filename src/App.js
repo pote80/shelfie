@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Dashboard from './component/dashboard/Dashboard';
+import Form from './component/form/Form';
+import Header from './component/header/Header';
 
 class App extends Component {
+  constructor(props){
+    super(props)
+  
+    this.state = {
+      products: [
+        {img_url: 'https://i.imgur.com/HzafyBA.jpg',
+        product_name: 'Fluffy Cow',
+        price: 200},
+        {img_url: 'https://i.imgur.com/ZPymHji.jpg',
+        product_name: 'Ewok Cow',
+        price: 2000}
+      ]
+    }
+  }
   render() {
+    
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <div> <Dashboard products={this.state.products}/></div>
+        <div> <Form /> </div>
+        <div> <Header /> </div>
       </div>
     );
   }
 }
+
 
 export default App;
